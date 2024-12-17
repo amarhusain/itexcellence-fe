@@ -1,0 +1,23 @@
+<div class="container py-4">
+    <div class="row">
+      <div class="col-12 col-md-3" *ngFor="let product of products">
+        <div class="card product-card mb-4">
+          <img [src]="product.image" class="card-img-top p-3" [alt]="product.name">
+          <div class="card-body text-center">
+            <h5 class="card-title">{{product.name}}</h5>
+            <p class="card-text text-muted small">{{product.description}}</p>
+            <p class="price">${{product.price.toFixed(2)}}</p>
+            <div class="rating mb-5">
+              <span *ngFor="let star of [1,2,3,4,5]">
+                <i class="fa-solid fa-star" [ngClass]="{'starred': star <= product.rating}"></i>
+              </span>
+            </div>
+            <div class="product-card-button">
+              <button class="btn btn-primary w-100" [ngClass]="'btn-' + product.buttonColor">Buy Now</button>
+            </div>
+          
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
